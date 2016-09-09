@@ -1,6 +1,11 @@
 # First install gpg2 if it isn't already installed
 sudo apt install gnupg2
 
+# if you are doing this for git, be sure git is installed
+sudo apt install git
+
+# Before moving on, double check that you are currently logged in as the normal user you want to be using, and not root or another account
+
 # Edit your .bashrc or .bash_profile to support gpg v2, copy from between START/END
 # <<<<<START
 export GPG_TTY=$(tty)
