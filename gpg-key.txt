@@ -14,6 +14,9 @@ gpg2 --gen-key
 # Verify the key was created
 gpg2 --list-secret-keys --keyid-format LONG
 
+# Export the key to pub format for github copy/paste into account
+gpg2 --armor --export HEXLONGKEYFROMLISTKEYS
+
 # Copy and paste gpg block into github if needed
 
 # Configure git for gpg2 and github account
