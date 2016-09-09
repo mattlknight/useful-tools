@@ -1,0 +1,20 @@
+## !! Requires elevated priveleges, either run these as root or with "sudo" preceding the commands.
+# Add a new user to a linux host
+adduser USERNAME
+
+# Add the new user to a group, 
+# append group to user's groups list without erasing original groups
+usermod -aG sudo USERNAME
+
+# Verify groups USERNAME is a member of
+groups USERNAME
+
+# Add user to sudoers file, and disable password requirement
+visudo
+
+# Add this line of text before the import statement at the bottom, but below all other statements/comments
+## !!! NOTICE,  the line '#includedir /etc/sudoers.d' is NOT!! a comment, never remove/delete it, you can put custom config above it though
+# !!! Don't add the 'includedir' line, this is just showing where you can put a line before the end of sudoers
+newusername     ALL=(ALL)       NOPASSWD:ALL
+
+#includedir /etc/sudoers.d
