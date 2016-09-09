@@ -6,13 +6,7 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 # Install keychain
 sudo apt install keychain
 
-# Edit your .bashrc or .bash_profile to support keychain, copy from between START/END
-# <<<<<START
-## --clear flag to only allow cron jobs to use password less login
-# /usr/bin/keychain --clear $HOME/.ssh/id_rsa
-/usr/bin/keychain $HOME/.ssh/id_rsa
-source $HOME/.keychain/$HOSTNAME-sh
-# >>>> END
+# Edit your .bashrc or .bash_profile to support keychain, see example .bashrc for details
 
 
 # If you want to ssh with key to a remote server, copy the .pub key that was generated above to the remote server
