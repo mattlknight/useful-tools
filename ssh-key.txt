@@ -13,3 +13,28 @@ sudo apt install keychain
 /usr/bin/keychain $HOME/.ssh/id_rsa
 source $HOME/.keychain/$HOSTNAME-sh
 # >>>> END
+
+
+# If you want to ssh with key to a remote server, copy the .pub key that was generated above to the remote server
+# Option 1, if 'ssh-copy-id' exists
+ssh-copy-id username@hostnameOrIp
+# Enter remote user's password
+# Option 2,
+# ssh to remote server with desired user account
+ssh user@remote
+# Enter user's password
+# make a new .ssh directory if it doesn't already exist
+mkdir .ssh
+# Chmod the directory to restrict access
+chmod 0700 .ssh
+# Create an authorized_keys file if it doesn't already exist
+touch .ssh/authorized_keys
+# Restrict permissions on the new file
+chmod 0600 .ssh/authorized_keys
+
+# edit the new file and add your ssh-rsa key into it, you can view this by cat'ing the local user's is_rsa.pub file created in previous steps
+# On local computer, not remote computer
+cat ~/.ssh/id_rsa.pub
+# the pub key text should start with 'ssh-rsa' followed by a ' 'space then the key, the end of the key (with no newlines between) should look something like 'AE45QH==' after the '==' there can be a ' 'space followed by an optional comment
+# hilight and copy this entire line, be sure that when you go to paste it, that pasting it doesn't create new lines or spaces within the key itself
+# paste the line into the remote server's newly created ~/.ssh/authorized_keys file,  and save it
