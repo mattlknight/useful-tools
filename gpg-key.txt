@@ -1,6 +1,13 @@
 # First install gpg2 if it isn't already installed
 sudo apt install gnupg2
 
+# Edit your .bashrc or .bash_profile to support gpg v2, copy from between START/END
+# <<<<<START
+export GPG_TTY=$(tty)
+# >>>> END
+
+# !!! Notice, you must log out and log back in to restart gpg2, so you can generate the key
+
 # Next generate a gpg key, if for github, use fullname and email that matches github account
 gpg2 --gen-key
 
@@ -16,8 +23,5 @@ git config --global user.email "email@example.com"
 git config --global commit.gpgsign true
 git config --global gpg.program gpg2
 
-# Edit your .bashrc or .bash_profile to support gpg v2, copy from between START/END
-# <<<<<START
-export GPG_TTY=$(tty)
-# >>>> END
+
 
