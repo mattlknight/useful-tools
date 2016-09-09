@@ -32,4 +32,6 @@ git config --global commit.gpgsign true
 git config --global gpg.program gpg2
 
 
-
+# To get the gpg key to work properly with keychain, i had to export it back into gpg v1 for some rason
+# not sure the consequences of this, but it allows keychain to work properly
+gpg2 --export-secret-keys | gpg --import
