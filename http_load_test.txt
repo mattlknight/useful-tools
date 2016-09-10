@@ -1,0 +1,10 @@
+# Load testing an http RESTful api server
+wrk -t 6 -c 8000 -d 5 --latency --timeout 1s http://hostname_or_ip:8888/api_endpoint
+
+# wrk is available in apt repot
+# -t 6 = 6 client test threads
+# -c 8000 = 8000 sockets/connections per client thread
+# -d 5 = duration of test, 5 secs
+# --latency = show latency stats at conclusion (also prints at Ctrl + C if you cancel early)
+# --timeout 1x = if a connection is slow to respond, consider it a timeout at 1s, close it, and move on
+# url = the full URL of the RESTful API endpoint
